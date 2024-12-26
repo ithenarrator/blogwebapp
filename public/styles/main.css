@@ -1,0 +1,21 @@
+* {
+    width:100%;
+}
+header {
+    color: white;
+    background-image: linear-gradient(#020b0c, #4d4b51);
+    text-align: center;
+}
+footer{
+    margin-top: 50px;
+}
+button{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.cardmargin{
+    margin-bottom: 20px;
+}
+.btnmarg{
+    margin: 20px
+}

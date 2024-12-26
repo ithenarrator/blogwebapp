@@ -1,0 +1,85 @@
+<%- include('partials/header.ejs') %>
+
+
+
+
+<main class="container">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+      <div class="col-lg-12 px-0">
+        <h1 class="display-4 fst-italic">Write Your Post here!</h1>
+        <p class="lead my-3">Write your post below and it will be added to the list of posts further down this page</p>
+        <form action="/" method="POST">
+            <input class='form-control' type="text" name='author' placeholder="Author" required><br>
+            <input class='form-control' type="text" name='heading' placeholder="Heading" required><br>
+
+            <textarea class='form-control' rows = "5" cols = "60" name='content' placeholder="Type your post here..." required></textarea><br>
+            <button class="btn btn-primary" type="submit">Post!</button>
+        </form>
+        <hr>
+        
+      </div>
+    </div>
+  
+   
+    
+
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <h2 class="pb-2 border-bottom">Previous Posts</h2>
+            
+            
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <% if(locals.posts){ %>
+                <% posts.forEach((item) => { %>
+            <div class="col cardmargin">
+              <div class="card shadow-sm">
+                <h1 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold" style="margin-left: 20px;"><%= item.heading%></h1>
+                <div class="card-body">
+                  <p class="card-text"> <%= item.author%></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <form action="/delete" method="POST">
+              
+                            <button class="btn btn-sm btn-outline-secondary" type="submit" name="deletebutton" value="<%=item.heading%>">Delete Post!</button>
+                            
+                            
+                        </form>
+                    <form action="/postview" method="POST">
+                        
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="viewbutton" value="<%=item.heading%>">View More...</button>
+                      
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% } ) %>  
+            <% } %>  
+    
+            
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+            
+
+
+          </div>
+  
+          
+        </div>
+    
+      </div>
+    </div>
+  
+  </main>
+
+
+
+
+<%- include('partials/footer.ejs') %>

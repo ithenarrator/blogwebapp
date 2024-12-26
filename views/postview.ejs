@@ -1,0 +1,58 @@
+<%- include('partials/header.ejs') %>
+
+
+
+<main class="container">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+      <div class="col-lg-12 px-0">
+        <h1 class="display-4 fst-italic">Post Viewer</h1>
+        
+        
+        <hr>
+        
+      </div>
+    </div>
+
+
+    <div class="row g-5">
+        <div class="col-md-12">
+          
+          <!-- Display posts-->
+          
+          <article class="blog-post" id="<%=heading%>">
+  
+            <h2 class="display-5 link-body-emphasis mb-1"><em><%= heading %></em></h2>
+            <p class="blog-post-meta">by <span style="color: blue;"><%= author %></span></p>
+            <p><%= content %> </p>
+           
+          <div class="btn-group">  
+            <form class='btnmarg' action="/delete" method="POST">
+              
+              <button class="btn btn-primary" type="submit" name="deletebutton" value="<%=heading%>">Delete Post!</button>
+              
+              
+          </form>
+       
+          <form class='btnmarg' action="/updatepage" method="POST">
+              
+              <button class="btn btn-primary" type="submit" name="updatebutton" value="<%= heading%>">Update Post!</button>
+              
+              
+          </form>
+          </div>
+          <form action="/" method="GET">
+              
+            <button class="btn btn-primary" type="submit">Return to post list</button>
+            
+            
+        </form>
+          <hr>
+          </article>
+         
+
+
+
+
+
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,39 @@
+
+      <div class="col-md-12">
+        <div class="position-sticky" style="top: 2rem;">
+            <h4 class="fst-italic">Recent posts</h4>
+                                                       <!-- In here you'll need to add an array of posts that is continually added to. This will be displayed using a for loop (or foreach). Can delete from this array-->
+          <% if(locals.posts){ %>
+            <% posts.forEach((item) => { %>
+
+            <ul class="list-unstyled">
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                   
+                    <div class="col-lg-8">
+                      <h6 class="mb-0" href='<%=item.heading%>'><%= item.heading %></h6>
+                      <small class="text-body-secondary">by <%= item.author %></small>
+                     
+                     
+                      <form action="/postview" method="POST">
+            
+                        <button class="btn btn-primary" type="submit" name="viewbutton" value="<%=item.heading%>">View More...</button>
+                        
+                        
+                    </form>
+                    </div>
+                  </a>
+                </li>
+               
+              </ul>
+
+          <% } ) %>  
+          <% } %>  
+          <div>
+            
+
+
+          </div>
+  
+          
+        </div>
